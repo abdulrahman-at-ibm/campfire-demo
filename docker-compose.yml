@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  web:
+    environment:
+      NODE_ENV: development
+      RAILS_ENV: development
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    build:
+      context: .
+      args:
+        USER_ID: 1000
+        GROUP_ID: 1000
+        APP_DIR: /home/user/rails_6_starter
+    command: bash -c "rm -f tmp/pids/server.pid &&
+      ./bin/webpack-dev-server &
+      bundle exec rails server -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/home/user/rails_6_starter
+    ports:
+      - "3000:3000"
+      - "3035:3035"
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+
