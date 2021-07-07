@@ -62,6 +62,8 @@ Run:
 docker compose up
 ```
 
+Go to `http://localhost:3000/`
+
 ## How to run the test suite
 https://github.com/rspec/rspec-rails
 
