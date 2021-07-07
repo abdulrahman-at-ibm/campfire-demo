@@ -41,7 +41,7 @@ default: &default
   host: db
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-	pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 development:
   <<: *default
   database: rails_6_starter_development
@@ -61,6 +61,8 @@ Run:
 ```sh
 docker compose up
 ```
+
+Go to `http://localhost:3000/`
 
 ## How to run the test suite
 https://github.com/rspec/rspec-rails
