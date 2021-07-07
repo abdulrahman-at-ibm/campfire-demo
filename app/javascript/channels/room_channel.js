@@ -14,7 +14,7 @@ const room = consumer.subscriptions.create("RoomChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-		$('.messages').append(`<div class="message"><p class="content">${data.content}</p></div>`)
+		$('.messages').append(`<div class="message"><p class="message-content">${data.content}</p><p class="message-date">${data.created_at}</p></div>`)
 		$('.messages').scrollTop($('.messages')[0].scrollHeight)
   }
 });
