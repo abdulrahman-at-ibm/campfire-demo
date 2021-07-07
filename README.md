@@ -1,6 +1,6 @@
-# Rails 6 Starter
+# Campfire Demo
 
-Rails 6 starter with Docker Compose.
+Action Cable chat application based on DHH's demo.
 
 ## Ruby version
 3.0.1
@@ -82,3 +82,4 @@ heroku run rails db:migrate
 
 Sources:
 1. https://blog.konnor.site/rails/getting-started-with-rails-6/#i-know-what-im-doing
+2. https://www.youtube.com/watch?v=n0WUjGkDFS0
